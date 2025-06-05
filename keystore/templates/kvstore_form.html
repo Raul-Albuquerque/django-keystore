@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags  %}
+
+{% block content %}
+  {% if keystore.pk %}
+    <h2 class="mb-3">Update KeyValue Item</h2>
+    <form method="POST">
+      {% csrf_token %}
+      {{ form| crispy }}
+      <button type="submit" class="btn btn-dark">Update Item</button>
+    </form>
+  {% else %}
+    <h2 class="mb-3">New KeyValue Item</h2>
+    <form method="POST">
+      {% csrf_token %}
+      {{ form| crispy }}
+      <button type="submit" class="btn btn-dark">Create Item</button>
+    </form>
+  {% endif %}
+  
+{% endblock content %}
